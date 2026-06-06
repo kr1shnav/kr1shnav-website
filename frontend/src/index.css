@@ -1,0 +1,260 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE CANVAS
+   ========================================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Warm matte editorial grey/taupe backdrop */
+  background-color: #b5aba6 !important; 
+  background-image: none !important;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Base Wrapper Matrix */
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. LANDING PAGE 3-COLUMN MATRIX LAYOUT
+   ========================================================================== */
+.landing-container {
+  display: grid;
+  /* Strict structural column locks matching your original design */
+  grid-template-columns: 1fr 340px 1fr; 
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: auto; /* Vertically and horizontally centers the matrix */
+  gap: 60px;
+  flex-grow: 1;
+}
+
+/* --- Left Column: Typography Alignment --- */
+.landing-left {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', 'Georgia', serif; 
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* --- Center Column: Media Frame & Live Clock --- */
+.landing-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-frame {
+  width: 340px;
+  height: 440px;
+  overflow: hidden;
+  border-radius: 0px; /* Sharp editorial flush corners */
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.time-display {
+  font-family: 'Inter', Arial, sans-serif;
+  color: #000000;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+
+/* --- Right Column: Interactive Menu List --- */
+.landing-right {
+  text-align: left;
+}
+
+.landing-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Completely Stripping Native Button Styles for Flat Typography Links */
+.nav-link-btn {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link-btn:hover {
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   3. STANDALONE WEBPAGE LAYOUT (ABOUT PAGE VIEW)
+   ========================================================================== */
+.single-page-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Master Grid Column alignment */
+.about-page-master-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  width: 100%;
+  gap: 40px; /* Uniform spacing between layout rows and footer boundary */
+}
+
+.about-page-content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.about-image-frame {
+  width: 320px;
+  flex-shrink: 0;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.about-text-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 500px;
+}
+
+.bio-text-large {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #000000;
+  margin: 0;
+  text-align: justify;
+}
+
+/* --- Dedicated Layout Footer Styles --- */
+.about-footer {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.15); /* Subtle anchor line above link text */
+  padding-top: 20px;
+}
+
+.back-btn-large {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+  padding: 0 !important;
+  cursor: pointer;
+  color: #000000;
+  transition: opacity 0.2s ease;
+}
+
+.back-btn-large:hover {
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE BREAKPOINTS (TABLETS & MOBILE SMARTPHONES)
+   ========================================================================== */
+@media (max-width: 950px) {
+  body {
+    display: block; /* Release central desktop layout locking configuration */
+  }
+
+  .landing-container {
+    grid-template-columns: 1fr; /* Drop side columns into a single stacked column */
+    text-align: center;
+    gap: 45px;
+    padding: 60px 20px;
+  }
+
+  .landing-left, 
+  .landing-right, 
+  .landing-center {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+    white-space: normal; /* Permits wrapping safely on narrow mobile frames */
+  }
+
+  .image-frame {
+    width: 290px;
+    height: 380px;
+  }
+
+  .nav-link-btn {
+    text-align: center;
+  }
+
+  .about-page-content-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .about-image-frame {
+    width: 260px;
+  }
+
+  .about-text-column {
+    max-width: 100%;
+  }
+  
+  .about-footer {
+    text-align: center;
+  }
+  
+  .back-btn-large {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
